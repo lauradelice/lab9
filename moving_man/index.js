@@ -27,21 +27,13 @@ img.onload = ()=>{
    // drawImage(0,0,scaleWidth3,0)
 }
 
-function init () {
-    window.requestAnimationFrame(step);
+function gameLoop () {
+    window.requestAnimationFrame(gameLoop);
 }
 
 function drawImage(frameX, frameY,canvasX, canvasY){
     ctx.drawImage(img,frameX*characterWidth, frameY*characterHeight, characterWidth, characterHeight, canvasX, canvasY, scaleHeight, scaleWidth)
 }
-
-function step() {
-
-    frameCounter++;
-    if (frameCounter <15) {
-        window.requestAnimationFrame(step);
-        return
-    }
 
     frameCounter = 0;
     ctx.clearRect (0,0, canvas.width, canvas.height);
@@ -50,13 +42,7 @@ function step() {
     if (currentIndexFrame >=4) {
         currentIndexFrame = 0;
     }
-    window.requestAnimationFrame(step)
-}
-
-
-
-
-
+    
 
 // function init() {
 
